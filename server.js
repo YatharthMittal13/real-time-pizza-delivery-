@@ -6,10 +6,14 @@ const expresslayout = require('express-ejs-layouts');
 
 const path = require('path');
 
+//assests
+app.use(express.static('public'));
+
+
 
 app.get('/', (req , resp)=>{
-    resp.render('home')
-});
+    resp.render('home')     //go to views folder and then home.ejs
+});                          //template engine is providing locationof home.ejs
 
 
 //set template engine
