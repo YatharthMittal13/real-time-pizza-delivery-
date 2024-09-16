@@ -10,6 +10,8 @@ app.get('/', homeController().index);                          //template engine
 //for cart page
 app.get('/cart', cartController().index)
 
+app.post('/update-cart', cartController().update)
+
 //for login page
 app.get('/login', authController().login)
 

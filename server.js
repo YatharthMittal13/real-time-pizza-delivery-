@@ -62,6 +62,10 @@ app.use(session({                //for every client/user server generate new ses
 //using express-flash as middleware
 app.use(flash());
 
+//by defauld express cannot recieve data in JSON format
+//to enable that function
+app.use(express.json());
+
 
 //assestss
 app.use(express.static('public'));
