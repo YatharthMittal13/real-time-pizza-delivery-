@@ -21,6 +21,7 @@ function updateCart(pizza) {
   axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/update-cart', pizza).then(function (resp) {
     console.log(resp);
     cartCounter.innerText = resp.data.totalQty;
+    window.alert("item added to cart!");
   });
 }
 

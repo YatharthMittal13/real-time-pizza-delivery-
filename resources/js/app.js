@@ -11,6 +11,7 @@ function updateCart(pizza){
     axios.post('/update-cart',pizza).then(resp =>{
         console.log(resp);
         cartCounter.innerText = resp.data.totalQty;
+        window.alert("item added to cart!");
     })
 }
 

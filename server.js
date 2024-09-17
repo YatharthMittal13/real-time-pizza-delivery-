@@ -66,9 +66,14 @@ app.use(flash());
 //to enable that function
 app.use(express.json());
 
-
 //assestss
 app.use(express.static('public'));
+
+//global middleware
+app.use((req,resp,next) =>{
+    resp.locals.session = req.session
+    next()
+})
 
 //set template engine
 app.use(expressLayout);
