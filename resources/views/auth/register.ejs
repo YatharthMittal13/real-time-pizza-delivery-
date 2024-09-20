@@ -2,14 +2,19 @@
      
 
     <div class="w-full max-w-xs">
-        <form action="/register" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form action="/register" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-            
+
+            <%if(messages.error) { %>
+
+            <span class="text-red-500 text-xs"><%= messages.error %></span>   <!--display this message when an error occur such as invalid or empty fields.  we have connected this with (authcontroller.js)-> postregister function-->
+            <% } %>
+
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Username
-                </label>
-                <input name="email"
+                </label>                    <!--the value below is used when we get error of (all field req) and page got refreshed to again display previously entered details-->
+                <input name="name" value="<%= messages.name %>"                
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="username" type="text" placeholder="Your name">
             </div>
@@ -19,7 +24,7 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Email
                 </label>
-                <input name="email"
+                <input name="email"   value="<%= messages.email %>"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="username" type="email" placeholder="Enter your email">
             </div>
@@ -35,7 +40,7 @@
                 <button
                     class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit">
-                    Log In
+                    Register
                 </button>
                 <a class="inline-block align-baseline font-bold text-sm" href="/login">
                    Already have account?
