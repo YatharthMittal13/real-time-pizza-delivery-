@@ -26,7 +26,7 @@ const url = 'mongodb://localhost:27017/pizza';
 //  const connection = mongoose.connection;
 //  connection.once('open' , () => {
 //     console.log('Database connected...');
-//  }).catch(err => {
+//  }).catch(err => 
 //     console.log('connection failed...')
 //  });
 

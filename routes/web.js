@@ -1,6 +1,7 @@
 const authController = require('../app/http/controllers/authController');
 const cartController = require('../app/http/controllers/customers/cartController');
 const homeController = require('../app/http/controllers/homeController');
+const orderController = require('../app/http/controllers/customers/orderController')
 const guest = require('../app/http/middleware/guest')
 
 function initRoutes(app){       //we are getting app from server.js file which is express
@@ -25,6 +26,8 @@ app.get('/register',guest, authController().register)
 app.post('/register', authController().postRegister)
 
 app.post('/logout', authController().logout)
+
+app.post('/orders', orderController().store)
 }
 
 module.exports = initRoutes
