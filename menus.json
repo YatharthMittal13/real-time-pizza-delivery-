@@ -1,4 +1,5 @@
-[{
+[
+  {
     "_id": {
       "$oid": "5eee651f739f8c674fd736ee"
     },
@@ -6,7 +7,8 @@
     "image": "pizza.png",
     "price": "250",
     "size": "small"
-  },{
+  },
+  {
     "_id": {
       "$oid": "5eee6671a27a66807cf2bea3"
     },
@@ -14,7 +16,8 @@
     "image": "pizza.png",
     "price": "300",
     "size": "medium"
-  },{
+  },
+  {
     "_id": {
       "$oid": "5eee6692a27a66807cf2bea4"
     },
@@ -22,7 +25,8 @@
     "image": "pizza.png",
     "price": "200",
     "size": "small"
-  },{
+  },
+  {
     "_id": {
       "$oid": "5eee66a5a27a66807cf2bea5"
     },
@@ -30,7 +34,8 @@
     "image": "pizza.png",
     "price": "500",
     "size": "large"
-  },{
+  },
+  {
     "_id": {
       "$oid": "5eee66c4a27a66807cf2bea6"
     },
@@ -38,7 +43,8 @@
     "image": "pizza.png",
     "price": "350",
     "size": "medium"
-  },{
+  },
+  {
     "_id": {
       "$oid": "5eee66cfa27a66807cf2bea7"
     },
@@ -46,7 +52,8 @@
     "image": "pizza.png",
     "price": "200",
     "size": "small"
-  },{
+  },
+  {
     "_id": {
       "$oid": "5eee66eea27a66807cf2bea8"
     },
@@ -54,7 +61,8 @@
     "image": "pizza.png",
     "price": "600",
     "size": "large"
-  },{ 
+  },
+  {
     "_id": {
       "$oid": "5eee6717a27a66807cf2bea9"
     },
@@ -62,4 +70,68 @@
     "image": "pizza.png",
     "price": "500",
     "size": "medium"
-  }]
+  },
+  {
+    "_id": {
+      "$oid": "5eee6720a27a66807cf2beaa"
+    },
+    "name": "Crispy Burger",
+    "image": "burger.png",
+    "price": "150",
+    "size": "medium"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6730a27a66807cf2beab"
+    },
+    "name": "Whopper Junior Burger",
+    "image": "burger.png",
+    "price": "200",
+    "size": "medium"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6740a27a66807cf2beac"
+    },
+    "name": "Crispy Veg Double Patty Burger",
+    "image": "burger.png",
+    "price": "250",
+    "size": "large"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6750a27a66807cf2bead"
+    },
+    "name": "Veg Makhni Burst Burger",
+    "image": "burger.png",
+    "price": "220",
+    "size": "medium"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6760a27a66807cf2beae"
+    },
+    "name": "Veg Maharaja Burger",
+    "image": "burger.png",
+    "price": "300",
+    "size": "large"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6770a27a66807cf2beaf"
+    },
+    "name": "Paneer Royale Burger",
+    "image": "burger.png",
+    "price": "280",
+    "size": "large"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6780a27a66807cf2beb0"
+    },
+    "name": "Hot n Saucy Burger",
+    "image": "burger.png",
+    "price": "250",
+    "size": "medium"
+  }
+]

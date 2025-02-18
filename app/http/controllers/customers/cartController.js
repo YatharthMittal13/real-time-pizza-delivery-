@@ -11,7 +11,7 @@ function cartController(){
             //create empty cart
             if(!req.session.cart){   //if cart is empty then we will create a cart having following objects
                 req.session.cart = {
-                    item: {},
+                    items: {},
                     totalQty: 0,
                     totalPrice: 0
                 }
@@ -19,8 +19,8 @@ function cartController(){
                 let cart = req.session.cart      //if cart is not empty we will recieve data of cart over here
                 console.log(req.body);
                 //check if item does not exist in cart then update the cart
-                if (!cart.item[req.body._id]) {      //this id comes from app.js(resource folder) under addToCart function
-                    cart.item[req.body._id] ={
+                if (!cart.items[req.body._id]) {      //this id comes from app.js(resource folder) under addToCart function
+                    cart.items[req.body._id] ={
                         item: req.body,
                         qty: 1
                     }
@@ -28,7 +28,7 @@ function cartController(){
                     cart.totalPrice = cart.totalPrice + req.body.price
                 }    ////check if item already exist if exist then increase quantity
                 else{
-                    cart.item[req.body._id].qty = cart.item[req.body._id].qty + 1
+                    cart.items[req.body._id].qty = cart.item[req.body._id].qty + 1
                     cart.totalQty = cart.totalQty + 1
                     cart.totalPrice = cart.totalPrice + req.body.price;
                 }
@@ -43,7 +43,7 @@ function cartController(){
     }
 }
 
-module.exports = cartController
+module.exports = cartController;
 
 
 

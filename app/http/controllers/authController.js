@@ -4,6 +4,13 @@ const bcrypt = require('bcrypt')   //library used to hash password
 const passport = require('passport')
 
 function authController(){
+
+    //function to check if user role is admin then redirect it to admin/orders
+    //if user is customer then redirect to customer/orders
+    const _getRedirectUrl = (req) =>{
+        return req.user.role == 'admin' ? '/admin/orders' : '/customer/orders'
+    }
+ 
     return{
         login (req, resp) {
             resp.render('auth/login')
@@ -26,13 +33,12 @@ function authController(){
                         req.flash('error', info.message)
                         return next(err)
                     }
-
-                    return resp.redirect('/')
+                    //if user is customer then redirect to customer/orders
+                    //if user is admin then redirect to admin/orders
+                    return resp.redirect(_getRedirectUrl(req))
                  })
             })(req, resp, next)
         },
-
-
 
         register(req , resp){         
             resp.render('auth/register')

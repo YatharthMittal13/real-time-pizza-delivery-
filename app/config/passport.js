@@ -81,7 +81,7 @@ function init(passport) {
             return done(null, false, { message: 'Something went wrong' });
         }
     }));
-
+ 
     // Serialize user (store user ID in session)
     passport.serializeUser((user, done) => {
         done(null, user._id);

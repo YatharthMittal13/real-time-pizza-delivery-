@@ -9,7 +9,7 @@
     </div>
 
     <div class="pizza-list">
-        <% for(let pizza of Object.values(session.cart.item)) { %>       <!--our item in cart controller is object to convert object into an array-->
+        <% for(let pizza of Object.values(session.cart.items)) { %>       
         <div class="flex items-center my-8">
             <img class="w-24" src="/img/<%= pizza.item.image%>" alt="image">
             <div class="flex-1 ml-4">
@@ -37,7 +37,7 @@
         <div>
             <form action="/orders" method="POST" class="mt-12">
                 <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone number">
-                <input name="Address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
+                <input name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
                 <div>
                     <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"  type="submit">Order now</button>
                 </div>

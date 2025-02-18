@@ -78,7 +78,7 @@ app.use(express.json());
 
 //in register.ejs and authcontroller contains data in urlencoded form and by dedfault it is disabled in express
 //to enable this we have 
-app.use(express.urlencoded({extended : false})) 
+app.use(express.urlencoded({extended : true})) 
 
 //assestss
 app.use(express.static('public'));
@@ -99,7 +99,7 @@ require('./routes/web')(app)
 
 
 
-const PORT = process.env.PORT || 3300
+const PORT = process.env.PORT || 3330
 app.listen(PORT , ()=>{
     console.log(`listening on port ${PORT}`)
 });
