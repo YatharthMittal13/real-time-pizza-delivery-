@@ -2,8 +2,9 @@
      
 
     <div class="w-full max-w-xs">
+        <!--action is used to tell when form is submitted send its data at given url i.e, /register  -->
+        <!--method id used todefine type of route as there could be multiple route with same url-->
         <form action="/register" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-
 
             <%if(messages.error) { %>
 
@@ -13,7 +14,9 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Username
-                </label>                    <!--the value below is used when we get error of (all field req) and page got refreshed to again display previously entered details-->
+                </label> 
+                <!--we have given name = "name" , therefore the data of this field will be accessed by word name  -->
+                <!--the value below is used when we get error of (all field req) and page got refreshed to again display previously entered details-->
                 <input name="name" value="<%= messages.name %>"                
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="username" type="text" placeholder="Your name">

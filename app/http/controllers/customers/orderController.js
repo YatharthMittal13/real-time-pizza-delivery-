@@ -39,11 +39,23 @@ function orderController() {
     
         },
 
-        //all order page logic
+        //all order of customer page logic
         async index(req, resp){
             const orders = await Order.find({ customerId: req.user._id },null, {sort: {'createdAt': -1}})  // sort is used so that latest order comes at top in all order page
             resp.render('customers/orders', {orders: orders , moment: moment } )  //moment is used to format time we displayed in all order i.e orders.ejs
             console.log(orders)
+        },
+        //logic for single order for customer
+        async show(req,resp){
+            const order = await Order.findById(req.params.id)
+            //authorize user- we want customer to see only his order status not other customer
+            //i.e, if 1st customer have orderId of another customer and 1st customer paste that id on url and check another customer status
+            //to avoid that 
+            //in mongodb userid is not string form it is in object form
+            if(req.user.id.toString() == order.customerId.toString()){
+              return resp.render('customers/singleOrder' , {order: order})  
+            }
+            return resp.redirect('/')
         }
     }
 }

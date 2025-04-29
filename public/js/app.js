@@ -57,17 +57,20 @@ function initAdmin() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 //code for client side
 //adding event listeners to the add buttons
 
  //axios is used for making HTTP requests from a web browser
 
+
 var addToCart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cartCounter');
 function updateCart(pizza) {
-  axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/update-cart', pizza).then(function (resp) {
+  axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('/update-cart', pizza).then(function (resp) {
     console.log(resp);
     cartCounter.innerText = resp.data.totalQty;
     window.alert("item added to cart!");
@@ -96,6 +99,38 @@ if (alertMsg) {
 
 //this will call admin.js file in resourse folder
 (0,_admin__WEBPACK_IMPORTED_MODULE_0__.initAdmin)();
+
+//logic for singleorder.ejs page
+//fetch the current order status and accordingly
+var statuses = document.querySelectorAll('.status_line');
+var hiddenInput = document.querySelector('#hiddenInput');
+var order = hiddenInput ? hiddenInput.value : null;
+//we are getting the order as string we need object therefore
+order = JSON.parse(order);
+console.log(order);
+
+//display time on order status page
+var time = document.createElement('small');
+function updateStatus(order) {
+  var stepCompleted = true;
+  statuses.forEach(function (status) {
+    var dataProp = status.dataset.status; //dataprop is fetching dats-status field from singleOrder.ejs 
+    if (stepCompleted) {
+      status.classList.add('step-completed');
+    }
+    if (dataProp == order.status) {
+      //if above condition satisfies then change then make next step as current
+      var _stepCompleted = false;
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_1___default()(order.updatedAt).format('hh:mm A');
+      status.appendChild(time);
+      if (status.nextElementSibling) {
+        //checks if nextsibling is present to make sure we are not at last step
+        status.nextElementSibling.classList.add('current');
+      }
+    }
+  });
+}
+updateStatus(order);
 
 /***/ }),
 

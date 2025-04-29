@@ -3,6 +3,7 @@
 
 import axios from "axios";   //axios is used for making HTTP requests from a web browser
 import {initAdmin} from './admin'
+import moment from 'moment'
 
 let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cartCounter')
@@ -38,3 +39,41 @@ if(alertMsg){
 
 //this will call admin.js file in resourse folder
 initAdmin()
+
+//logic for singleorder.ejs page
+//fetch the current order status and accordingly
+let statuses = document.querySelectorAll('.status_line')
+
+let hiddenInput =  document.querySelector('#hiddenInput')
+let order = hiddenInput ? hiddenInput.value : null
+//we are getting the order as string we need object therefore
+order = JSON.parse(order)
+console.log(order)
+
+//display time on order status page
+let time = document.createElement('small')
+
+function updateStatus(order){
+    let stepCompleted = true;
+    statuses.forEach((status) => {
+        let dataProp = status.dataset.status   //dataprop is fetching dats-status field from singleOrder.ejs 
+        if(stepCompleted) {
+            status.classList.add('step-completed')
+        }
+        if(dataProp == order.status){
+            //if above condition satisfies then change then make next step as current
+            let stepCompleted = false;
+
+            time.innerText = moment(order.updatedAt).format('hh:mm A')
+            status.appendChild(time)
+
+            if(status.nextElementSibling) {   //checks if nextsibling is present to make sure we are not at last step
+            status.nextElementSibling.classList.add('current')
+            }
+        } 
+         
+    } )
+
+}
+
+updateStatus(order);
